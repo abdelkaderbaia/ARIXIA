@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>مطوية بكالوريا 2026 — برج باجي مختار</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  /* Palette: Deep Midnight + Antique Gold + Ivory */
+  --ink:      #0D1B2A;   /* deepest navy */
+  --ink2:     #162436;
+  --ink3:     #1F3348;
+  --gold:     #B8860B;
+  --gold2:    #D4A017;
+  --gold3:    #F0C040;
+  --gold-pale:#FAE89A;
+  --ivory:    #F7F0E2;
+  --ivory2:   #EDE3CE;
+  --ivory3:   #E0D4BB;
+  --white:    #FFFFFF;
+  --dz-green: #006233;
+  --dz-red:   #D21034;
+  --text1:    #1A1008;
+  --text2:    #4A3B1C;
+  --text3:    #7A6035;
+  --W: 210mm;
+  --H: 297mm;
+}
+
+html,body{
+  background:#1a1a1a;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:32px 20px 60px;
+  gap:0;
+}
+
+.lbl{
+  color:#777;
+  font-family:'Cairo',sans-serif;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin:28px 0 10px;
+}
+
+/* ── BROCHURE SHELL ── */
+.brochure{
+  display:flex;
+  width:calc(var(--W)*3);
+  height:var(--H);
+  box-shadow:0 30px 90px rgba(0,0,0,0.7);
+  overflow:hidden;
+  position:relative;
+}
+
+.panel{
+  width:var(--W);
+  height:var(--H);
+  flex-shrink:0;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+
+/* fold shadow */
+.panel+.panel::before{
+  content:'';
+  position:absolute;
+  top:0;right:0;bottom:0;
+  width:6px;
+  background:linear-gradient(90deg,rgba(0,0,0,0.12),transparent);
+  z-index:20;
+  pointer-events:none;
+}
+
+/* ════════════════════════════════════════
+   FRONT — PANEL 1: COVER
+════════════════════════════════════════ */
+.pf-cover{
+  background:var(--ink);
+}
+
+/* geometric background pattern */
+.pf-cover .geo{
+  position:absolute;inset:0;overflow:hidden;
+}
+.pf-cover .geo svg{
+  position:absolute;inset:0;width:100%;height:100%;
+  opacity:.07;
+}
+
+/* top flag strip */
+.flag-strip{
+  position:absolute;top:0;left:0;right:0;
+  height:5px;display:flex;z-index:10;
+}
+.flag-strip .g{flex:1;background:var(--dz-green)}
+.flag-strip .w{flex:1;background:var(--white)}
+.flag-strip .r{flex:1;background:var(--dz-red)}
+
+/* cover layout */
+.cover-inner{
+  position:relative;z-index:2;
+  display:flex;flex-direction:column;
+  align-items:center;
+  height:100%;
+  padding:0;
+}
+
+.cover-upper{
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:36px 24px 0;
+  width:100%;
+  flex:1;
+}
+
+/* PTT emblem */
+.emblem{
+  position:relative;
+  width:100px;height:100px;
+  margin-bottom:22px;
+}
+.emblem-ring{
+  position:absolute;inset:0;
+  border-radius:50%;
+  border:1px solid rgba(184,134,11,0.3);
+}
+.emblem-ring.r2{
+  inset:6px;
+  border-color:rgba(184,134,11,0.2);
+}
+.emblem-core{
+  position:absolute;
+  inset:12px;
+  border-radius:50%;
+  background:linear-gradient(145deg,var(--gold3),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+}
+.emblem-core span{
+  font-family:'Cairo',sans-serif;
+  font-size:22px;font-weight:900;
+  color:var(--ink);letter-spacing:1px;
+}
+
+.cover-org-name{
+  font-family:'Cairo',sans-serif;
+  font-size:10px;font-weight:600;
+  color:rgba(212,160,23,0.7);
+  letter-spacing:.5px;
+  text-align:center;
+  line-height:1.7;
+  margin-bottom:28px;
+}
+
+/* diagonal gold rule */
+.h-rule{
+  width:50px;height:1.5px;
+  background:var(--gold2);
+  margin:0 auto 24px;
+}
+
+.cover-headline{
+  font-family:'Amiri',serif;
+  font-size:13px;font-weight:400;
+  color:rgba(240,192,64,0.8);
+  letter-spacing:3px;
+  text-align:center;
+  margin-bottom:10px;
+}
+
+.cover-title{
+  font-family:'Amiri',serif;
+  font-size:46px;font-weight:700;
+  color:var(--white);
+  text-align:center;
+  line-height:1.15;
+  margin-bottom:10px;
+}
+.cover-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--gold3),var(--gold2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+.cover-tagline{
+  font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:300;
+  color:rgba(255,255,255,0.45);
+  text-align:center;
+  line-height:1.7;
+  padding:0 20px;
+}
+
+/* cover bottom band */
+.cover-lower{
+  width:100%;margin-top:auto;
+}
+.cover-mid-band{
+  background:rgba(184,134,11,0.1);
+  border-top:1px solid rgba(184,134,11,0.2);
+  border-bottom:1px solid rgba(184,134,11,0.2);
+  padding:14px 24px;
+  display:flex;align-items:center;
+  gap:14px;
+}
+.cmd-icon{font-size:20px}
+.cmd-text{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:400;
+  color:rgba(255,255,255,0.5);
+  line-height:1.55;
+}
+.cmd-text strong{color:rgba(240,192,64,0.9);font-weight:600}
+
+.cover-foot{
+  background:var(--gold);
+  padding:16px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cf-year{
+  font-family:'Amiri',serif;
+  font-size:36px;font-weight:700;
+  color:var(--ink);letter-spacing:3px;
+}
+.cf-right{text-align:left}
+.cf-right p{
+  font-family:'Cairo',sans-serif;
+  font-size:9px;font-weight:700;
+  color:rgba(13,27,42,0.6);
+  letter-spacing:.5px;
+  line-height:1.6;
+}
+
+/* ════════════════════════════════════════
+   FRONT — PANEL 2 (middle, folds inside)
+════════════════════════════════════════ */
+.pf-mid{
+  background:var(--ivory);
+}
+
+.pf-mid-header{
+  background:var(--ink2);
+  padding:22px 26px 18px;
+}
+.pmh-eyebrow{
+  font-family:'Cairo',sans-serif;
+  font-size:9px;font-weight:700;
+  color:var(--gold2);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:5px;
+}
+.pmh-title{
+  font-family:'Amiri',serif;
+  font-size:22px;font-weight:700;
+  color:var(--white);
+  line-height:1.25;
+}
+.pmh-title span{color:var(--gold3)}
+
+.pf-mid-body{
+  padding:20px 22px;
+  display:flex;flex-direction:column;
+  gap:0;
+  flex:1;
+}
+
+/* Section block */
+.sec-block{
+  padding:16px 0;
+  border-bottom:1px solid var(--ivory3);
+}
+.sec-block:last-child{border-bottom:none}
+
+.sec-label{
+  display:flex;align-items:center;gap:8px;
+  margin-bottom:11px;
+}
+.sec-dot{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.sec-dot span{font-size:9px}
+.sec-lbl-text{
+  font-family:'Amiri',serif;
+  font-size:15px;font-weight:700;
+  color:var(--ink);
+}
+
+.tip-row{
+  display:flex;align-items:flex-start;gap:9px;
+  margin-bottom:8px;
+}
+.tip-row:last-child{margin-bottom:0}
+.tip-ck{
+  width:16px;height:16px;border-radius:3px;
+  background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.tip-ck span{font-size:8px;color:var(--ink);font-weight:900}
+.tip-body{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:400;
+  color:var(--text2);
+  line-height:1.6;
+}
+.tip-body strong{color:var(--text1);font-weight:700}
+
+.warn-block{
+  background:var(--ink2);
+  border-radius:6px;
+  padding:12px 14px;
+  margin-top:6px;
+}
+.warn-block p{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:400;
+  color:rgba(255,255,255,0.65);
+  line-height:1.65;
+}
+.warn-block strong{color:var(--gold3);font-weight:600}
+
+/* ════════════════════════════════════════
+   FRONT — PANEL 3 (leftmost, flap)
+════════════════════════════════════════ */
+.pf-flap{
+  background:var(--ink3);
+}
+
+.pff-band{
+  background:var(--gold);
+  padding:20px 22px;
+}
+.pff-band-title{
+  font-family:'Amiri',serif;
+  font-size:18px;font-weight:700;
+  color:var(--ink);
+  line-height:1.3;
+}
+.pff-band-sub{
+  font-family:'Cairo',sans-serif;
+  font-size:9px;font-weight:600;
+  color:rgba(13,27,42,0.55);
+  letter-spacing:.5px;
+  margin-top:4px;
+}
+
+.role-list{
+  display:flex;flex-direction:column;
+  gap:1px;
+  flex:1;
+}
+.role-item{
+  display:flex;align-items:stretch;
+  background:rgba(255,255,255,0.03);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:background .2s;
+}
+.role-item:hover{background:rgba(255,255,255,0.06)}
+.ri-num{
+  width:36px;
+  background:rgba(184,134,11,0.12);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.ri-num span{
+  font-family:'Amiri',serif;
+  font-size:18px;font-weight:700;
+  color:rgba(212,160,23,0.5);
+}
+.ri-body{
+  padding:14px 14px;
+  flex:1;
+}
+.ri-title{
+  font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:700;
+  color:var(--gold3);
+  margin-bottom:4px;
+}
+.ri-desc{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:300;
+  color:rgba(255,255,255,0.55);
+  line-height:1.55;
+}
+
+.pff-footer{
+  background:rgba(0,0,0,0.25);
+  border-top:1px solid rgba(184,134,11,0.15);
+  padding:14px 18px;
+  display:flex;align-items:center;gap:12px;
+}
+.pff-footer-flag{
+  display:flex;flex-direction:column;
+  width:3px;align-self:stretch;
+  border-radius:2px;overflow:hidden;flex-shrink:0;
+}
+.pff-footer-flag .g{flex:1;background:var(--dz-green)}
+.pff-footer-flag .w{flex:1;background:rgba(255,255,255,0.8)}
+.pff-footer-flag .r{flex:1;background:var(--dz-red)}
+.pff-footer-text{
+  font-family:'Cairo',sans-serif;
+  font-size:10px;font-weight:400;
+  color:rgba(255,255,255,0.4);
+  line-height:1.6;
+}
+.pff-footer-text strong{color:rgba(212,160,23,0.8);font-weight:600}
+
+/* ════════════════════════════════════════
+   BACK — PANEL B1: الراحة والتغذية
+════════════════════════════════════════ */
+.pb-health{
+  background:var(--ink);
+}
+
+.pb-header{
+  height:110px;
+  position:relative;
+  overflow:hidden;
+  display:flex;align-items:flex-end;
+  padding:0 22px 18px;
+}
+.pb-header-bg{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 50%,#8B6508 100%);
+}
+.pb-header-pattern{
+  position:absolute;inset:0;
+  background-image:repeating-linear-gradient(
+    45deg,
+    rgba(0,0,0,0.06) 0px, rgba(0,0,0,0.06) 1px,
+    transparent 1px, transparent 8px
+  );
+}
+.pb-header-content{position:relative;z-index:2}
+.pb-header-icon{font-size:10px;color:var(--ink);font-weight:700;letter-spacing:2px;margin-bottom:3px;opacity:.6}
+.pb-header-title{
+  font-family:'Amiri',serif;
+  font-size:22px;font-weight:700;
+  color:var(--ink);line-height:1.2;
+}
+
+.pb-health-body{
+  padding:20px 20px;
+  flex:1;
+  display:flex;flex-direction:column;gap:10px;
+}
+
+.hlt-card{
+  display:flex;align-items:center;gap:0;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:6px;overflow:hidden;
+}
+.hlt-left{
+  width:44px;
+  background:rgba(184,134,11,0.15);
+  display:flex;align-items:center;justify-content:center;
+  align-self:stretch;
+  flex-shrink:0;
+}
+.hlt-left span{font-size:20px}
+.hlt-right{padding:11px 13px}
+.hlt-title{
+  font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:700;
+  color:var(--gold3);margin-bottom:3px;
+}
+.hlt-desc{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:300;
+  color:rgba(255,255,255,0.55);line-height:1.5;
+}
+
+.hlt-quote{
+  margin-top:auto;
+  padding:14px 16px;
+  background:rgba(184,134,11,0.08);
+  border-right:3px solid var(--gold2);
+  border-radius:0 5px 5px 0;
+}
+.hlt-quote p{
+  font-family:'Amiri',serif;
+  font-size:13px;font-style:italic;
+  color:var(--gold-pale);
+  line-height:1.7;
+}
+
+/* ════════════════════════════════════════
+   BACK — PANEL B2: الاستعداد الجيد
+════════════════════════════════════════ */
+.pb-prep{
+  background:var(--ivory);
+}
+
+.pb-prep-top{
+  background:var(--ink2);
+  padding:22px 22px 18px;
+  position:relative;overflow:hidden;
+}
+.pb-prep-top::after{
+  content:'';
+  position:absolute;
+  bottom:-30px;left:-30px;
+  width:100px;height:100px;
+  border-radius:50%;
+  background:rgba(184,134,11,0.08);
+}
+.pbpt-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(184,134,11,0.15);
+  border:1px solid rgba(184,134,11,0.25);
+  border-radius:4px;
+  padding:3px 10px;
+  margin-bottom:10px;
+}
+.pbpt-tag span{font-family:'Cairo',sans-serif;font-size:9px;font-weight:700;color:var(--gold3);letter-spacing:1px}
+.pbpt-title{
+  font-family:'Amiri',serif;
+  font-size:22px;font-weight:700;
+  color:var(--white);line-height:1.25;
+}
+.pbpt-title em{font-style:normal;color:var(--gold3)}
+.pbpt-sub{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:300;
+  color:rgba(255,255,255,0.45);
+  margin-top:5px;
+}
+
+.step-grid{
+  padding:18px 20px;
+  display:flex;flex-direction:column;gap:8px;
+}
+
+.step-card{
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:12px;
+  align-items:start;
+  padding:12px 14px;
+  background:var(--white);
+  border:1px solid var(--ivory2);
+  border-radius:6px;
+  border-right:3px solid var(--gold);
+}
+.step-n{
+  font-family:'Amiri',serif;
+  font-size:22px;font-weight:700;
+  color:var(--ivory3);
+  line-height:1;margin-top:2px;
+  text-align:center;
+}
+.step-content h5{
+  font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:700;
+  color:var(--ink);margin-bottom:3px;
+}
+.step-content p{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:400;
+  color:var(--text3);line-height:1.55;
+}
+
+.pb-prep-seal{
+  margin-top:auto;
+  padding:14px 20px;
+  border-top:1px solid var(--ivory2);
+  display:flex;align-items:center;gap:10px;
+}
+.seal-bar{width:3px;align-self:stretch;background:var(--gold);border-radius:2px;flex-shrink:0}
+.seal-content p{
+  font-family:'Cairo',sans-serif;
+  font-size:10px;font-weight:400;
+  color:var(--text3);line-height:1.6;
+}
+.seal-content strong{color:var(--text1);font-weight:700}
+
+/* ════════════════════════════════════════
+   BACK — PANEL B3: الختام
+════════════════════════════════════════ */
+.pb-final{
+  background:var(--ink2);
+  display:flex;flex-direction:column;
+}
+
+.pb-final-body{
+  flex:1;
+  display:flex;flex-direction:column;
+  align-items:center;
+  padding:32px 22px 20px;
+}
+
+.trophy-wrap{
+  width:100px;height:100px;
+  border-radius:50%;
+  background:rgba(184,134,11,0.1);
+  border:1px solid rgba(184,134,11,0.25);
+  display:flex;align-items:center;justify-content:center;
+  font-size:52px;
+  margin-bottom:20px;
+}
+
+.final-title{
+  font-family:'Amiri',serif;
+  font-size:36px;font-weight:700;
+  color:var(--white);
+  text-align:center;line-height:1.2;
+  margin-bottom:6px;
+}
+.final-title em{font-style:normal;color:var(--gold3)}
+
+.final-sub{
+  font-family:'Cairo',sans-serif;
+  font-size:12px;font-weight:300;
+  color:rgba(255,255,255,0.45);
+  text-align:center;line-height:1.7;
+  margin-bottom:24px;
+}
+
+.values-list{
+  width:100%;
+  display:flex;flex-direction:column;gap:6px;
+}
+.val-row{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 14px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:5px;
+}
+.val-ic{
+  width:28px;height:28px;
+  border-radius:50%;
+  background:rgba(184,134,11,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+}
+.val-txt{
+  font-family:'Cairo',sans-serif;
+  font-size:11.5px;font-weight:500;
+  color:rgba(255,255,255,0.75);
+}
+
+.pb-final-bottom{
+  width:100%;margin-top:auto;
+}
+.pff-flag{height:4px;display:flex}
+.pff-flag .g{flex:1;background:var(--dz-green)}
+.pff-flag .w{flex:1;background:rgba(255,255,255,0.9)}
+.pff-flag .r{flex:1;background:var(--dz-red)}
+
+.pff-foot{
+  background:var(--gold);
+  padding:16px 20px;
+}
+.pff-foot p{
+  font-family:'Cairo',sans-serif;
+  font-size:11px;font-weight:600;
+  color:var(--ink);text-align:center;line-height:1.7;
+}
+.pff-foot small{
+  display:block;
+  font-size:9px;font-weight:400;
+  color:rgba(13,27,42,0.55);
+  margin-top:2px;letter-spacing:.5px;
+}
+
+@media print{
+  body{background:none;padding:0}
+  .lbl{display:none}
+  .brochure{box-shadow:none;page-break-after:always}
+}
+</style>
+</head>
+<body>
+
+<p class="lbl">▶ الوجه الأمامي ◀</p>
+
+<!-- ══════════ FRONT SIDE ══════════ -->
+<div class="brochure">
+
+  <!-- F1: COVER -->
+  <div class="panel pf-cover">
+    <div class="geo">
+      <svg viewBox="0 0 210 297" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="175" cy="60" r="90" fill="none" stroke="white" stroke-width="35"/>
+        <circle cx="-20" cy="220" r="110" fill="none" stroke="white" stroke-width="40"/>
+        <line x1="0" y1="180" x2="210" y2="120" stroke="white" stroke-width="60"/>
+        <circle cx="105" cy="150" r="60" fill="none" stroke="white" stroke-width="1" stroke-dasharray="4 6"/>
+      </svg>
+    </div>
+    <div class="flag-strip"><div class="g"></div><div class="w"></div><div class="r"></div></div>
+    <div class="cover-inner">
+      <div class="cover-upper">
+        <div class="emblem">
+          <div class="emblem-ring"></div>
+          <div class="emblem-ring r2"></div>
+          <div class="emblem-core"><span>PTT</span></div>
+        </div>
+        <div class="cover-org-name">
+          ولاية برج باجي مختار<br>
+          مديرية البريد والمواصلات<br>
+          السلكية واللاسلكية
+        </div>
+        <div class="h-rule"></div>
+        <div class="cover-headline">رسالة دعم وتوجيه</div>
+        <div class="cover-title">طلبة<br><em>البكالوريا</em></div>
+        <div class="cover-tagline">
+          أنتم فخر الوطن وأمل الغد<br>
+          نرافقكم في هذه المرحلة المفصلية
+        </div>
+      </div>
+      <div class="cover-lower">
+        <div class="cover-mid-band">
+          <div class="cmd-icon">🎓</div>
+          <div class="cmd-text">
+            <strong>دورة جوان 2026</strong><br>
+            امتحان شهادة البكالوريا — الجزائر
+          </div>
+        </div>
+        <div class="cover-foot">
+          <div class="cf-year">2026</div>
+          <div class="cf-right">
+            <p>بكالوريا الجزائر<br>BAC ALGÉRIE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- F2: MID PANEL -->
+  <div class="panel pf-mid">
+    <div class="pf-mid-header">
+      <div class="pmh-eyebrow">نصائح وتوجيهات</div>
+      <div class="pmh-title">مفاتيح<br><span>النجاح</span></div>
+    </div>
+    <div class="pf-mid-body">
+
+      <div class="sec-block">
+        <div class="sec-label">
+          <div class="sec-dot"><span>🌐</span></div>
+          <div class="sec-lbl-text">الاستعمال الإيجابي للإنترنت</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body">اعتمد على <strong>المصادر الرسمية والموثوقة</strong> فقط.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body">استخدم منصات التعلّم الرقمي <strong>للمراجعة العلمية</strong>.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body">قلّل من وسائل التواصل <strong>في فترة الامتحانات</strong>.</div>
+        </div>
+      </div>
+
+      <div class="sec-block">
+        <div class="sec-label">
+          <div class="sec-dot"><span>🚫</span></div>
+          <div class="sec-lbl-text">تجنّب الإشاعات</div>
+        </div>
+        <div class="warn-block">
+          <p>
+            <strong>لا تتداول الأخبار غير المؤكدة</strong> — الإشاعات تزرع القلق وتُضيّع وقتك الثمين.<br><br>
+            مصدرك الوحيد: <strong>المديرية والمسؤولون الرسميون</strong> 🔒
+          </p>
+        </div>
+      </div>
+
+      <div class="sec-block">
+        <div class="sec-label">
+          <div class="sec-dot"><span>💪</span></div>
+          <div class="sec-lbl-text">الثقة بالنفس</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body">ثق بقدراتك — <strong>أنت أعددت نفسك لهذا اليوم</strong>.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body">واجه الامتحان بهدوء وتأنٍّ، <strong>اقرأ الأسئلة بعناية</strong>.</div>
+        </div>
+        <div class="tip-row">
+          <div class="tip-ck"><span>✓</span></div>
+          <div class="tip-body"><strong>تنفّس بعمق</strong> وتوكّل على الله 🤲</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- F3: FLAP -->
+  <div class="panel pf-flap">
+    <div class="pff-band">
+      <div class="pff-band-title">📡 دور البريد والاتصالات<br>في دعم الامتحانات</div>
+      <div class="pff-band-sub">نحن معكم في كل خطوة</div>
+    </div>
+    <div class="role-list">
+      <div class="role-item">
+        <div class="ri-num"><span>01</span></div>
+        <div class="ri-body">
+          <div class="ri-title">استمرارية شبكة الاتصال</div>
+          <div class="ri-desc">ضمان شبكات مستقرة وموثوقة طوال فترة الامتحانات في كامل الولاية.</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="ri-num"><span>02</span></div>
+        <div class="ri-body">
+          <div class="ri-title">الخدمات الرقمية</div>
+          <div class="ri-desc">ضمان استمرارية المنصات الإلكترونية والتطبيقات الخاصة بالبكالوريا.</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="ri-num"><span>03</span></div>
+        <div class="ri-body">
+          <div class="ri-title">حماية المعطيات</div>
+          <div class="ri-desc">صون سرية المعلومات والبيانات الرسمية المتعلقة بالامتحان.</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="ri-num"><span>04</span></div>
+        <div class="ri-body">
+          <div class="ri-title">الدعم المؤسسي</div>
+          <div class="ri-desc">التنسيق مع الجهات المعنية لضمان سير الامتحانات في أفضل الظروف.</div>
+        </div>
+      </div>
+      <div class="role-item">
+        <div class="ri-num"><span>05</span></div>
+        <div class="ri-body">
+          <div class="ri-title">التواصل الرسمي</div>
+          <div class="ri-desc">توفير قنوات تواصل موثوقة بين المترشحين والجهات التربوية.</div>
+        </div>
+      </div>
+    </div>
+    <div class="pff-footer">
+      <div class="pff-footer-flag"><div class="g"></div><div class="w"></div><div class="r"></div></div>
+      <div class="pff-footer-text">
+        <strong>مديرية البريد والمواصلات</strong><br>
+        ولاية برج باجي مختار — الجزائر 🇩🇿
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════ BACK SIDE ══════════ -->
+<p class="lbl">▶ الوجه الخلفي ◀</p>
+
+<div class="brochure">
+
+  <!-- B1: الراحة والتغذية -->
+  <div class="panel pb-health">
+    <div class="pb-header">
+      <div class="pb-header-bg"></div>
+      <div class="pb-header-pattern"></div>
+      <div class="pb-header-content">
+        <div class="pb-header-icon">SANTÉ & NUTRITION</div>
+        <div class="pb-header-title">الراحة والتغذية<br>وقود عقلك وجسمك</div>
+      </div>
+    </div>
+    <div class="pb-health-body">
+      <div class="hlt-card">
+        <div class="hlt-left"><span>🛌</span></div>
+        <div class="hlt-right">
+          <div class="hlt-title">النوم الكافي</div>
+          <div class="hlt-desc">نم 7–8 ساعات يومياً. الدماغ يُرسّخ المعلومات أثناء النوم العميق.</div>
+        </div>
+      </div>
+      <div class="hlt-card">
+        <div class="hlt-left"><span>🥗</span></div>
+        <div class="hlt-right">
+          <div class="hlt-title">التغذية المتوازنة</div>
+          <div class="hlt-desc">تجنّب الأكل الدسم قبل الامتحان. فضّل الفواكه والبروتينات الخفيفة.</div>
+        </div>
+      </div>
+      <div class="hlt-card">
+        <div class="hlt-left"><span>💧</span></div>
+        <div class="hlt-right">
+          <div class="hlt-title">الترطيب الدائم</div>
+          <div class="hlt-desc">اشرب ماءً بانتظام. الجفاف يُضعف التركيز والذاكرة بشكل ملحوظ.</div>
+        </div>
+      </div>
+      <div class="hlt-card">
+        <div class="hlt-left"><span>🚶</span></div>
+        <div class="hlt-right">
+          <div class="hlt-title">الحركة والتمدّد</div>
+          <div class="hlt-desc">قم بتمارين خفيفة بين جلسات المراجعة لتنشيط الدورة الدموية.</div>
+        </div>
+      </div>
+      <div class="hlt-quote">
+        <p>"العقل السليم في الجسم السليم — العناية بصحتك استثمار مباشر في نجاحك."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- B2: الاستعداد الجيد -->
+  <div class="panel pb-prep">
+    <div class="pb-prep-top">
+      <div class="pbpt-tag"><span>PREPARATION</span></div>
+      <div class="pbpt-title">الاستعداد <em>الجيد</em><br>أساس كل نجاح</div>
+      <div class="pbpt-sub">نظّم وقتك وراجع دروسك بانتظام</div>
+    </div>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-n">01</div>
+        <div class="step-content">
+          <h5>ضع جدولاً يومياً</h5>
+          <p>خصّص ساعات محددة للمراجعة مع فترات راحة منظّمة بين الجلسات.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">02</div>
+        <div class="step-content">
+          <h5>راجع الدروس بانتظام</h5>
+          <p>التكرار المنتظم يُثبّت المعلومات في الذاكرة البعيدة المدى.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">03</div>
+        <div class="step-content">
+          <h5>حلّ امتحانات سابقة</h5>
+          <p>تعرّف على نمط الأسئلة وتدرّب على إدارة وقت الامتحان بكفاءة.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">04</div>
+        <div class="step-content">
+          <h5>ركّز على نقاط الضعف</h5>
+          <p>حدّد المواد الأصعب وخصّص لها وقتاً ومجهوداً إضافياً.</p>
+        </div>
+      </div>
+      <div class="step-card">
+        <div class="step-n">05</div>
+        <div class="step-content">
+          <h5>استعن بالأساتذة</h5>
+          <p>لا تتردد في طرح الأسئلة والاستفادة من التعلم التعاوني مع زملائك.</p>
+        </div>
+      </div>
+    </div>
+    <div class="pb-prep-seal">
+      <div class="seal-bar"></div>
+      <div class="seal-content">
+        <p><strong>مديرية البريد والمواصلات السلكية واللاسلكية</strong><br>
+        ولاية برج باجي مختار — إصدار 2026</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- B3: الختام -->
+  <div class="panel pb-final">
+    <div class="pb-final-body">
+      <div class="trophy-wrap">🏆</div>
+      <div class="final-title">بالتوفيق<br>و<em>النجاح</em></div>
+      <div class="final-sub">
+        نتمنى النجاح الباهر لجميع<br>
+        مترشحي البكالوريا 2026<br>
+        من ولاية برج باجي مختار
+      </div>
+      <div class="values-list">
+        <div class="val-row">
+          <div class="val-ic">⭐</div>
+          <div class="val-txt">أنتم قادرون على التميّز والتفوّق</div>
+        </div>
+        <div class="val-row">
+          <div class="val-ic">🦅</div>
+          <div class="val-txt">من صحراء برج باجي ترتفع أجنحتكم</div>
+        </div>
+        <div class="val-row">
+          <div class="val-ic">🎓</div>
+          <div class="val-txt">أنتم فخر ولايتكم وأمل وطنكم</div>
+        </div>
+        <div class="val-row">
+          <div class="val-ic">🤲</div>
+          <div class="val-txt">الله يُسدّد خطاكم ويُيسّر أمركم</div>
+        </div>
+      </div>
+    </div>
+    <div class="pb-final-bottom">
+      <div class="pff-flag"><div class="g"></div><div class="w"></div><div class="r"></div></div>
+      <div class="pff-foot">
+        <p>مديرية البريد والمواصلات السلكية واللاسلكية<br>
+        ولاية برج باجي مختار — الجزائر 🇩🇿</p>
+        <small>BAC 2026 — رسالة دعم وتوجيه</small>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مطوية بكالوريا 2026 — برج باجي مختار</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════ */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --gold:       #C6920A;
+  --gold-lt:    #E8B430;
+  --gold-pale:  #F5DC8A;
+  --navy:       #0B1829;
+  --navy-mid:   #152539;
+  --navy-lt:    #1E3855;
+  --cream:      #FBF5E6;
+  --cream-dk:   #F0E5CC;
+  --text-dark:  #1A1208;
+  --text-mid:   #4A3B1C;
+  --text-lt:    #7A6230;
+  --green-dz:   #006233;
+  --red-dz:     #D21034;
+  --white:      #FFFFFF;
+  --panel-w:    210mm;
+  --panel-h:    297mm;
+  --gap:        0mm;
+}
+
+html, body {
+  background: #2a2a2a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: 'Cairo', sans-serif;
+}
+
+.page-label {
+  color: #aaa;
+  font-family: 'Cairo', sans-serif;
+  font-size: 13px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════
+   BROCHURE WRAPPER (3 panels)
+══════════════════════════════════════ */
+.brochure {
+  display: flex;
+  flex-direction: row;
+  width: calc(var(--panel-w) * 3);
+  height: var(--panel-h);
+  background: var(--cream);
+  box-shadow: 0 20px 80px rgba(0,0,0,0.6);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.brochure.back {
+  margin-top: 24px;
+}
+
+.panel {
+  width: var(--panel-w);
+  height: var(--panel-h);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* fold lines */
+.panel:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(0,0,0,0.1);
+  z-index: 50;
+}
+
+/* ══════════════════════════════════════
+   PANEL 1 — COVER (right panel, front)
+══════════════════════════════════════ */
+.p-cover {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+/* decorative geometric backdrop */
+.cover-geo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.cover-geo::before {
+  content: '';
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  border: 40px solid rgba(198,146,10,0.08);
+  top: -80px; left: -80px;
+}
+.cover-geo::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 25px solid rgba(198,146,10,0.06);
+  bottom: 60px; right: -50px;
+}
+
+.cover-flag {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  display: flex;
+}
+.cover-flag .fg { flex: 1; background: var(--green-dz); }
+.cover-flag .fw { flex: 1; background: var(--white); }
+.cover-flag .fr { flex: 1; background: var(--red-dz); }
+
+.cover-top {
+  width: 100%;
+  padding: 32px 24px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 10px;
+}
+
+.ptt-logo-big {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--gold-lt), var(--gold));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 18px;
+  box-shadow: 0 0 0 8px rgba(198,146,10,0.12), 0 0 0 16px rgba(198,146,10,0.06);
+}
+
+.cover-org {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: rgba(198,146,10,0.7);
+  letter-spacing: 0.5px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.cover-divider {
+  width: 60px; height: 1px;
+  background: var(--gold);
+  opacity: 0.4;
+  margin: 16px auto;
+}
+
+.cover-main {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.cover-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.cover-title {
+  font-family: 'Amiri', serif;
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.cover-title em {
+  font-style: normal;
+  color: var(--gold-lt);
+}
+
+.cover-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+.cover-bottom {
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.cover-band {
+  background: var(--gold);
+  padding: 14px 24px;
+  text-align: center;
+}
+.cover-band-year {
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 3px;
+}
+.cover-band-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(11,24,41,0.7);
+  letter-spacing: 1px;
+}
+
+/* ══════════════════════════════════════
+   PANEL 2 — BACK FOLD (middle, front)
+══════════════════════════════════════ */
+.p-back-fold {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 22px;
+  border-left: 1px solid rgba(0,0,0,0.07);
+}
+
+.section-title {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.section-title span { color: var(--gold); }
+
+.gold-line {
+  width: 40px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 12px;
+  border-radius: 1px;
+}
+
+.tip-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+.tip-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 10px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.tip-txt {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-mid);
+  line-height: 1.6;
+}
+.tip-txt strong {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.divider-thin {
+  border: none;
+  border-top: 1px solid var(--cream-dk);
+  margin: 16px 0;
+}
+
+.warn-box {
+  background: rgba(198,146,10,0.07);
+  border: 1px solid rgba(198,146,10,0.25);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.warn-box p {
+  font-size: 11.5px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.warn-box strong { color: var(--text-dark); font-weight: 700; }
+
+/* ══════════════════════════════════════
+   PANEL 3 — FRONT FOLD (left, front)
+══════════════════════════════════════ */
+.p-front-fold {
+  background: var(--navy-mid);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.pf-header {
+  background: var(--gold);
+  padding: 20px 22px;
+  text-align: center;
+}
+.pf-header-title {
+  font-family: 'Amiri', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.pf-header-sub {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(11,24,41,0.65);
+  letter-spacing: 0.5px;
+  margin-top: 3px;
+}
+
+.pf-body {
+  padding: 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.role-card {
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(198,146,10,0.2);
+  border-radius: 8px;
+  padding: 13px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.role-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.role-text { flex: 1; }
+.role-h {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gold-lt);
+  margin-bottom: 3px;
+}
+.role-p {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.55;
+}
+
+.pf-footer {
+  background: rgba(0,0,0,0.25);
+  padding: 14px 20px;
+  text-align: center;
+}
+.pf-footer p {
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+.pf-footer span { color: var(--gold); font-weight: 600; }
+
+/* ══════════════════════════════════════
+   BACK SIDE — 3 panels
+══════════════════════════════════════ */
+
+/* BACK-LEFT: الراحة والتغذية */
+.p-back-left {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.blk-top {
+  background: var(--gold);
+  padding: 22px 22px 18px;
+}
+.blk-top-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.blk-top-sub {
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(11,24,41,0.6);
+  margin-top: 4px;
+}
+
+.blk-body {
+  padding: 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nutr-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(198,146,10,0.2);
+  border-radius: 8px;
+}
+.nutr-ic { font-size: 24px; flex-shrink: 0; }
+.nutr-text h4 {
+  font-size: 12px; font-weight: 700;
+  color: var(--gold-lt); margin-bottom: 2px;
+}
+.nutr-text p {
+  font-size: 11px; font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+.blk-quote {
+  margin-top: auto;
+  background: rgba(198,146,10,0.1);
+  border-right: 3px solid var(--gold);
+  padding: 12px 14px;
+  border-radius: 0 6px 6px 0;
+}
+.blk-quote p {
+  font-family: 'Amiri', serif;
+  font-size: 14px;
+  color: var(--gold-pale);
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* BACK-MIDDLE: الاستعداد الجيد */
+.p-back-mid {
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  padding: 30px 22px;
+}
+
+.back-mid-hero {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.back-mid-icon { font-size: 44px; margin-bottom: 6px; display: block; }
+.back-mid-title {
+  font-family: 'Amiri', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.back-mid-sub {
+  font-size: 11px;
+  color: var(--text-lt);
+  margin-top: 3px;
+}
+
+.step-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  background: var(--white);
+  border: 0.5px solid var(--cream-dk);
+  border-radius: 8px;
+}
+.step-dot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.step-body h5 {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.step-body p {
+  font-size: 11px;
+  color: var(--text-lt);
+  line-height: 1.5;
+}
+
+.back-mid-seal {
+  margin-top: auto;
+  text-align: center;
+  border-top: 1px solid var(--cream-dk);
+  padding-top: 14px;
+}
+.seal-txt {
+  font-size: 11px;
+  color: var(--text-lt);
+  line-height: 1.6;
+}
+.seal-txt strong { color: var(--text-dark); }
+
+/* BACK-RIGHT: ختام */
+.p-back-right {
+  background: var(--navy-mid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.br-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 20px;
+  flex: 1;
+  gap: 16px;
+}
+
+.trophy-big { font-size: 64px; display: block; text-align: center; }
+
+.br-main-title {
+  font-family: 'Amiri', serif;
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+  text-align: center;
+  line-height: 1.3;
+}
+.br-main-title em {
+  font-style: normal;
+  color: var(--gold-lt);
+}
+
+.br-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  line-height: 1.6;
+  padding: 0 10px;
+}
+
+.br-values {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.bv-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(198,146,10,0.2);
+  border-radius: 8px;
+}
+.bv-ic { font-size: 18px; flex-shrink: 0; }
+.bv-txt {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+}
+
+.br-bottom {
+  width: 100%;
+}
+.br-flag-bar {
+  display: flex;
+  height: 5px;
+}
+.br-flag-bar .fg { flex: 1; background: var(--green-dz); }
+.br-flag-bar .fw { flex: 1; background: var(--white); }
+.br-flag-bar .fr { flex: 1; background: var(--red-dz); }
+
+.br-footer {
+  background: var(--gold);
+  padding: 14px 20px;
+  text-align: center;
+}
+.br-footer p {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* ══════════════════════════════════════
+   PRINT STYLES
+══════════════════════════════════════ */
+@media print {
+  body { background: none; padding: 0; }
+  .page-label { display: none; }
+  .brochure { box-shadow: none; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-label">◀ الوجه الأمامي ▶</div>
+
+<!-- ══ FRONT SIDE ══ -->
+<div class="brochure front">
+
+  <!-- Panel F1: Cover (rightmost when folded) -->
+  <div class="panel p-cover">
+    <div class="cover-geo"></div>
+    <div class="cover-flag"><div class="fg"></div><div class="fw"></div><div class="fr"></div></div>
+
+    <div class="cover-top">
+      <div class="ptt-logo-big">PTT</div>
+      <div class="cover-org">
+        ولاية برج باجي مختار<br>
+        مديرية البريد والمواصلات<br>
+        السلكية واللاسلكية
+      </div>
+      <div class="cover-divider"></div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-eyebrow">رسالة دعم وتوجيه</div>
+      <div class="cover-title">
+        طلبة<br>
+        <em>البكالوريا</em>
+      </div>
+      <div class="cover-sub">
+        أنتم فخر الوطن وأمل المستقبل<br>
+        نرافقكم في هذه المرحلة المفصلية
+      </div>
+    </div>
+
+    <div class="cover-bottom">
+      <div class="cover-band">
+        <div class="cover-band-year">2026</div>
+        <div class="cover-band-label">دورة جوان — بكالوريا الجزائر</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel F2: Back fold (middle) -->
+  <div class="panel p-back-fold">
+    <div class="section-title">🌐 <span>الاستعمال الإيجابي</span> للإنترنت</div>
+    <div class="gold-line"></div>
+
+    <div class="tip-item">
+      <div class="tip-num">1</div>
+      <div class="tip-txt">اعتمد على <strong>المصادر الرسمية والموثوقة</strong> فقط للمراجعة والبحث العلمي.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">2</div>
+      <div class="tip-txt">استخدم <strong>المنصات التعليمية الرقمية</strong> لتحميل الدروس والتمارين المحلولة.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">3</div>
+      <div class="tip-txt">حدّد وقتاً مقنّناً <strong>لوسائل التواصل الاجتماعي</strong> حفاظاً على تركيزك.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">4</div>
+      <div class="tip-txt">أبعد هاتفك وقت <strong>المراجعة العميقة</strong> لتحقيق أقصى استيعاب ممكن.</div>
+    </div>
+
+    <hr class="divider-thin">
+
+    <div class="section-title" style="font-size:16px">🚫 <span>تجنّب الإشاعات</span></div>
+    <div class="gold-line"></div>
+
+    <div class="warn-box">
+      <p>
+        <strong>لا تتداول الأخبار غير المؤكدة</strong> بشأن الامتحانات أو التسريبات،
+        فالإشاعات تُضيّع وقتك وتزرع القلق دون أي فائدة.<br><br>
+        مصدرك الوحيد الموثوق هو <strong>المديرية والمسؤولون الرسميون</strong> فقط. 🔒
+      </p>
+    </div>
+
+    <hr class="divider-thin">
+
+    <div class="section-title" style="font-size:16px">💪 <span>الثقة بالنفس</span></div>
+    <div class="gold-line"></div>
+
+    <div class="tip-item">
+      <div class="tip-num">✓</div>
+      <div class="tip-txt">ثق في قدراتك — <strong>لقد أعددت نفسك لهذا اليوم</strong>.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">✓</div>
+      <div class="tip-txt">واجه الامتحان <strong>بهدوء وتأنٍّ</strong>، اقرأ كل سؤال بعناية.</div>
+    </div>
+    <div class="tip-item">
+      <div class="tip-num">✓</div>
+      <div class="tip-txt">تنفّس بعمق وتوكّل على الله <strong>🤲</strong></div>
+    </div>
+  </div>
+
+  <!-- Panel F3: Front fold (leftmost when folded) -->
+  <div class="panel p-front-fold">
+    <div class="pf-header">
+      <div class="pf-header-title">📡 دور البريد والاتصالات<br>في دعم الامتحانات</div>
+      <div class="pf-header-sub">نحن معكم في كل خطوة</div>
+    </div>
+
+    <div class="pf-body">
+      <div class="role-card">
+        <div class="role-icon">📶</div>
+        <div class="role-text">
+          <div class="role-h">استمرارية شبكة الاتصال</div>
+          <div class="role-p">ضمان شبكات مستقرة وموثوقة طوال فترة الامتحانات في كامل الولاية.</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">💻</div>
+        <div class="role-text">
+          <div class="role-h">الخدمات الرقمية</div>
+          <div class="role-p">ضمان استمرارية المنصات الإلكترونية والخدمات التقنية المرتبطة بالبكالوريا.</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔐</div>
+        <div class="role-text">
+          <div class="role-h">حماية المعطيات</div>
+          <div class="role-p">صون سرية المعلومات والبيانات الرسمية المتعلقة بالامتحان.</div>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏢</div>
+        <div class="role-text">
+          <div class="role-h">الدعم المؤسسي</div>
+          <div class="role-p">التنسيق مع الجهات المعنية لضمان سير الامتحانات في أفضل الظروف.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-footer">
+      <p>
+        <span>مديرية البريد والمواصلات</span><br>
+        ولاية برج باجي مختار — الجزائر 🇩🇿
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══ BACK SIDE ══ -->
+<div class="page-label" style="margin-top:28px">◀ الوجه الخلفي ▶</div>
+
+<div class="brochure back">
+
+  <!-- Back-Left: الراحة والتغذية -->
+  <div class="panel p-back-left">
+    <div class="blk-top">
+      <div class="blk-top-title">💤 الراحة والتغذية<br>وقود العقل والجسم</div>
+      <div class="blk-top-sub">اهتم بصحتك لتؤدي بأفضل مستوياتك</div>
+    </div>
+    <div class="blk-body">
+      <div class="nutr-row">
+        <div class="nutr-ic">🛌</div>
+        <div class="nutr-text">
+          <h4>النوم الكافي</h4>
+          <p>نم 7-8 ساعات يومياً. الدماغ يُرسّخ المعلومات أثناء النوم.</p>
+        </div>
+      </div>
+      <div class="nutr-row">
+        <div class="nutr-ic">🥗</div>
+        <div class="nutr-text">
+          <h4>التغذية المتوازنة</h4>
+          <p>تجنّب الأكل الدسم قبل الامتحان. فضّل الفواكه والبروتينات.</p>
+        </div>
+      </div>
+      <div class="nutr-row">
+        <div class="nutr-ic">💧</div>
+        <div class="nutr-text">
+          <h4>الترطيب الدائم</h4>
+          <p>اشرب ماءً بانتظام. الجفاف يُضعف التركيز والذاكرة.</p>
+        </div>
+      </div>
+      <div class="nutr-row">
+        <div class="nutr-ic">🚶</div>
+        <div class="nutr-text">
+          <h4>التمدّد والحركة</h4>
+          <p>قم بتمارين خفيفة بين جلسات المراجعة لتنشيط الدورة الدموية.</p>
+        </div>
+      </div>
+
+      <div class="blk-quote">
+        <p>"العقل السليم في الجسم السليم — العناية بجسدك استثمار في نجاحك."</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back-Mid: الاستعداد الجيد -->
+  <div class="panel p-back-mid">
+    <div class="back-mid-hero">
+      <span class="back-mid-icon">📅</span>
+      <div class="back-mid-title">الاستعداد الجيد<br>أساس كل نجاح</div>
+      <div class="back-mid-sub">نظّم وقتك وراجع دروسك بانتظام</div>
+    </div>
+
+    <ul class="step-list">
+      <li class="step-item">
+        <div class="step-dot">01</div>
+        <div class="step-body">
+          <h5>ضع جدولاً يومياً</h5>
+          <p>خصّص ساعات محددة للمراجعة مع فترات راحة منظّمة.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-dot">02</div>
+        <div class="step-body">
+          <h5>راجع الدروس بانتظام</h5>
+          <p>التكرار المنتظم يُثبّت المعلومات في الذاكرة البعيدة المدى.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-dot">03</div>
+        <div class="step-body">
+          <h5>حلّ الامتحانات السابقة</h5>
+          <p>اكتشف نمط الأسئلة وادرب نفسك على إدارة وقت الامتحان.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-dot">04</div>
+        <div class="step-body">
+          <h5>ركّز على نقاط الضعف</h5>
+          <p>حدّد المواد الأصعب وخصّص لها وقتاً إضافياً.</p>
+        </div>
+      </li>
+      <li class="step-item">
+        <div class="step-dot">05</div>
+        <div class="step-body">
+          <h5>استعن بالأساتذة والزملاء</h5>
+          <p>لا تتردد في طرح الأسئلة والاستفادة من التعلم الجماعي.</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="back-mid-seal">
+      <div class="seal-txt">
+        <strong>مديرية البريد والمواصلات السلكية واللاسلكية</strong><br>
+        ولاية برج باجي مختار — إعداد: 2026
+      </div>
+    </div>
+  </div>
+
+  <!-- Back-Right: الختام -->
+  <div class="panel p-back-right">
+    <div class="br-top">
+      <span class="trophy-big">🏆</span>
+
+      <div class="br-main-title">
+        بالتوفيق<br>و<em>النجاح</em>
+      </div>
+
+      <div class="br-sub">
+        نتمنى النجاح الباهر لجميع<br>
+        مترشحي البكالوريا 2026<br>
+        من ولاية برج باجي مختار
+      </div>
+
+      <div class="br-values">
+        <div class="bv-row"><div class="bv-ic">⭐</div><div class="bv-txt">أنتم قادرون على التميّز</div></div>
+        <div class="bv-row"><div class="bv-ic">🦅</div><div class="bv-txt">من صحراء الجزائر ترتفع أجنحتكم</div></div>
+        <div class="bv-row"><div class="bv-ic">🎓</div><div class="bv-txt">أنتم فخر ولاية برج باجي مختار</div></div>
+        <div class="bv-row"><div class="bv-ic">🤲</div><div class="bv-txt">الله يسدّد خطاكم ويُيسّر أمركم</div></div>
+      </div>
+    </div>
+
+    <div class="br-bottom">
+      <div class="br-flag-bar"><div class="fg"></div><div class="fw"></div><div class="fr"></div></div>
+      <div class="br-footer">
+        <p>
+          مديرية البريد والمواصلات السلكية واللاسلكية<br>
+          ولاية برج باجي مختار — الجزائر 🇩🇿
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

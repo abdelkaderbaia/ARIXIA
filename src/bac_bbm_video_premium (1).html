@@ -1,0 +1,360 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+#vroot{
+  font-family:'Cairo',sans-serif;
+  background:#06111f;
+  width:100%;min-height:600px;
+  overflow:hidden;position:relative;
+  border-radius:16px;direction:rtl;
+  border:1px solid #1a3a5c;
+}
+canvas#bg{position:absolute;inset:0;width:100%;height:100%}
+.scene{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:32px 24px;text-align:center;
+  opacity:0;pointer-events:none;
+  transition:opacity 1s ease;
+}
+.scene.on{opacity:1;pointer-events:all}
+
+.header-bar{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(218,165,32,0.25);
+  border-radius:50px;padding:10px 22px;
+  margin-bottom:22px;
+}
+.ptt-badge{
+  width:52px;height:52px;border-radius:50%;
+  background:#daaa20;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:16px;color:#06111f;
+  flex-shrink:0;
+  box-shadow:0 0 0 3px rgba(218,170,32,0.2);
+}
+.org-text{text-align:right;line-height:1.35}
+.org-wil{font-size:11px;color:#daaa20;font-weight:600;letter-spacing:.5px}
+.org-name{font-size:13px;color:#b0c8e8;font-weight:500}
+
+.sep{
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,#daaa20,transparent);
+  margin:0 auto 20px;
+}
+
+.big-title{
+  font-family:'Amiri',serif;
+  font-size:46px;font-weight:700;
+  color:#fff;line-height:1.15;
+  text-shadow:0 2px 20px rgba(218,170,32,.3);
+}
+.big-title span{color:#daaa20}
+.sub-title{font-size:16px;color:#7ab0d8;margin-top:6px;font-weight:500}
+
+.stars-wrap{display:flex;justify-content:center;gap:10px;margin:18px 0}
+.star-sh{
+  width:0;height:0;opacity:0;
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+  background:#daaa20;
+  transition:all .5s cubic-bezier(.34,1.56,.64,1);
+}
+.star-sh.pop{width:36px;height:36px;opacity:1}
+.star-sh.big-s{width:46px;height:46px}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(218,165,32,0.18);
+  border-radius:18px;
+  padding:22px 30px;
+  max-width:520px;width:100%;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;
+  top:-60px;right:-60px;
+  width:140px;height:140px;border-radius:50%;
+  background:rgba(218,170,32,0.05);
+}
+.card-text{font-size:17px;font-weight:500;color:#e0eeff;line-height:1.85}
+.gld{color:#f0c040}
+.grn{color:#4de89a}
+.sky{color:#60c8ff}
+
+.pillars{display:flex;gap:14px;justify-content:center;margin:18px 0;flex-wrap:wrap}
+.pillar{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(218,165,32,0.2);
+  border-radius:14px;
+  padding:14px 16px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  min-width:100px;
+}
+.p-icon{font-size:28px;line-height:1}
+.p-lbl{font-size:12px;font-weight:600;color:#90b8d8}
+
+.tips-list{
+  text-align:right;
+  margin-top:10px;
+}
+.tip-row{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:15px;color:#d0e8ff;font-weight:500;
+  padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);
+  line-height:1.5;
+}
+.tip-row:last-child{border-bottom:none}
+.tip-check{
+  width:22px;height:22px;border-radius:50%;
+  background:#daaa20;color:#06111f;
+  font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+
+.trophy-wrap{margin-bottom:10px}
+.trophy-anim{font-size:72px;display:inline-block;animation:troph 2s ease-in-out infinite alternate}
+@keyframes troph{
+  from{transform:translateY(0) scale(1) rotate(-4deg)}
+  to{transform:translateY(-10px) scale(1.06) rotate(4deg)}
+}
+
+.final-msg{
+  font-family:'Amiri',serif;
+  font-size:36px;font-weight:700;
+  color:#fff;line-height:1.3;
+  margin:8px 0;
+}
+.final-sub{font-size:15px;color:#7ab0d8;margin-top:4px}
+
+.flag-bar{
+  display:flex;height:5px;width:80%;margin:14px auto;border-radius:3px;overflow:hidden;
+}
+.flag-g{flex:1;background:#006233}
+.flag-w{flex:1;background:#ffffff}
+.flag-r{flex:1;background:#d21034}
+
+.btn-replay{
+  margin-top:20px;
+  background:#daaa20;color:#06111f;
+  border:none;border-radius:40px;
+  padding:11px 32px;
+  font-family:'Cairo',sans-serif;
+  font-size:15px;font-weight:700;cursor:pointer;
+  transition:transform .2s,opacity .2s;
+}
+.btn-replay:hover{transform:scale(1.04);opacity:.9}
+
+.dots{
+  display:flex;gap:8px;justify-content:center;
+  margin-top:18px;
+}
+.dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(218,170,32,0.25);
+  transition:background .4s,transform .4s;
+}
+.dot.on{background:#daaa20;transform:scale(1.3)}
+
+.prog{
+  position:absolute;bottom:0;left:0;height:3px;
+  background:#daaa20;width:0;
+}
+@keyframes prog-go{from{width:0}to{width:100%}}
+</style>
+
+<div id="vroot">
+  <canvas id="bg"></canvas>
+
+  <div class="scene on" id="sc0">
+    <div class="header-bar">
+      <div class="ptt-badge">PTT</div>
+      <div class="org-text">
+        <div class="org-wil">ولاية برج باجي مختار</div>
+        <div class="org-name">مديرية البريد والمواصلات السلكية واللاسلكية</div>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="big-title">طلبة <span>البكالوريا</span> 🎓</div>
+    <div class="sub-title">دورة جوان 2025 — أنتم فخرنا</div>
+    <div class="stars-wrap">
+      <div class="star-sh" id="st0"></div>
+      <div class="star-sh big-s" id="st1"></div>
+      <div class="star-sh" id="st2"></div>
+    </div>
+    <div class="card">
+      <p class="card-text">
+        تُرحّب بكم مديرية البريد والمواصلات<br>
+        السلكية واللاسلكية لولاية <span class="gld">برج باجي مختار</span><br>
+        وتتمنى لكم <span class="grn">التوفيق والنجاح المتميّز</span> 🌟
+      </p>
+    </div>
+    <div class="prog" id="p0"></div>
+  </div>
+
+  <div class="scene" id="sc1">
+    <div class="big-title" style="font-size:30px">أنتم <span>أصحاب الإرادة</span>!</div>
+    <div class="sub-title">سنوات الجهد تُثمر اليوم</div>
+    <div class="pillars">
+      <div class="pillar"><span class="p-icon">📚</span><span class="p-lbl">المثابرة</span></div>
+      <div class="pillar"><span class="p-icon">🧠</span><span class="p-lbl">الذكاء</span></div>
+      <div class="pillar"><span class="p-icon">💪</span><span class="p-lbl">العزيمة</span></div>
+      <div class="pillar"><span class="p-icon">🎯</span><span class="p-lbl">التركيز</span></div>
+    </div>
+    <div class="card">
+      <p class="card-text">
+        لقد قطعتم شوطاً طويلاً بـ<span class="gld">صبر وإصرار</span><br>
+        من صحراء برج باجي مختار الشامخة<br>
+        ترتفع اليوم <span class="sky">أجنحتكم نحو المستقبل</span> 🦅
+      </p>
+    </div>
+    <div class="prog" id="p1"></div>
+  </div>
+
+  <div class="scene" id="sc2">
+    <div class="big-title" style="font-size:28px">🔑 خطوات <span>النجاح</span></div>
+    <div class="card" style="margin-top:16px;padding:18px 24px">
+      <div class="tips-list">
+        <div class="tip-row"><div class="tip-check">✓</div><span>اقرأ كل الأسئلة بعناية قبل الإجابة</span></div>
+        <div class="tip-row"><div class="tip-check">✓</div><span>ابدأ بالأسئلة <span class="gld">الأسهل</span> لاكتساب الثقة</span></div>
+        <div class="tip-row"><div class="tip-check">✓</div><span>وزّع وقتك بذكاء على جميع الأسئلة</span></div>
+        <div class="tip-row"><div class="tip-check">✓</div><span>راجع إجاباتك قبل <span class="grn">تسليم الورقة</span></span></div>
+        <div class="tip-row"><div class="tip-check">✓</div><span>تنفّس بعمق وتوكّل على الله 🤲</span></div>
+      </div>
+    </div>
+    <div class="prog" id="p2"></div>
+  </div>
+
+  <div class="scene" id="sc3">
+    <div class="trophy-wrap"><span class="trophy-anim">🏆</span></div>
+    <div class="final-msg">إلى قمم <span style="color:#daaa20">المجد!</span></div>
+    <div class="final-sub">بإذن الله ستُحقّقون أحلامكم</div>
+    <div class="flag-bar"><div class="flag-g"></div><div class="flag-w"></div><div class="flag-r"></div></div>
+    <div class="card" style="margin-top:8px">
+      <p class="card-text">
+        <span class="gld">مديرية البريد والمواصلات السلكية واللاسلكية</span><br>
+        لولاية <span class="sky">برج باجي مختار</span><br>
+        تُشجّعكم وتدعو الله أن يُسدّد خطاكم 🇩🇿
+      </p>
+    </div>
+    <button class="btn-replay" onclick="restart()">▶ إعادة التشغيل</button>
+  </div>
+
+  <div class="dots" style="position:absolute;bottom:14px;left:50%;transform:translateX(-50%);z-index:10">
+    <div class="dot on" id="d0"></div>
+    <div class="dot" id="d1"></div>
+    <div class="dot" id="d2"></div>
+    <div class="dot" id="d3"></div>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+const root = document.getElementById('vroot');
+let W, H, particles = [], animId;
+
+function resize(){
+  W = canvas.width = root.offsetWidth;
+  H = canvas.height = root.offsetHeight;
+}
+
+function mkParticle(){
+  return{
+    x: Math.random()*W,
+    y: Math.random()*H,
+    r: .5 + Math.random()*1.5,
+    vx: (Math.random()-.5)*.15,
+    vy: -.1 - Math.random()*.2,
+    life: 0,
+    maxLife: 200 + Math.random()*300,
+    hue: Math.random()<.6 ? 45 : (Math.random()<.5 ? 200 : 140)
+  };
+}
+
+function initParticles(){
+  particles = [];
+  for(let i=0;i<80;i++) particles.push(mkParticle());
+}
+
+function drawBg(){
+  ctx.fillStyle = '#06111f';
+  ctx.fillRect(0,0,W,H);
+  const g1 = ctx.createRadialGradient(W*.2, H*.5, 0, W*.2, H*.5, W*.5);
+  g1.addColorStop(0,'rgba(10,40,100,0.5)');
+  g1.addColorStop(1,'transparent');
+  ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
+  const g2 = ctx.createRadialGradient(W*.8, H*.3, 0, W*.8, H*.3, W*.4);
+  g2.addColorStop(0,'rgba(218,170,32,0.07)');
+  g2.addColorStop(1,'transparent');
+  ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
+}
+
+function drawHexPattern(){
+  ctx.save();
+  ctx.strokeStyle='rgba(218,170,32,0.04)';
+  ctx.lineWidth=.5;
+  const s=40, rows=Math.ceil(H/s/0.866)+1, cols=Math.ceil(W/s)+1;
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      const ox = c*s*1.5, oy = r*s*0.866*2 + (c%2)*s*0.866;
+      ctx.beginPath();
+      for(let i=0;i<6;i++){
+        const a=Math.PI/180*(60*i-30);
+        const px=ox+s*.45*Math.cos(a), py=oy+s*.45*Math.sin(a);
+        i===0?ctx.moveTo(px,py):ctx.lineTo(px,py);
+      }
+      ctx.closePath(); ctx.stroke();
+    }
+  }
+  ctx.restore();
+}
+
+function tick(){
+  drawBg();
+  drawHexPattern();
+  particles.forEach((p,i)=>{
+    p.x+=p.vx; p.y+=p.vy; p.life++;
+    if(p.life>p.maxLife || p.y<-5) particles[i]=mkParticle();
+    const a = p.life<30?p.life/30: p.life>p.maxLife-40?(p.maxLife-p.life)/40:0.7;
+    ctx.beginPath();
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`hsla(${p.hue},80%,70%,${a})`;
+    ctx.fill();
+  });
+  animId=requestAnimationFrame(tick);
+}
+
+let cur=0, tmr;
+const DURATION=5800;
+
+function goTo(n){
+  const prev=document.getElementById('sc'+cur);
+  prev.classList.remove('on');
+  document.getElementById('d'+cur).classList.remove('on');
+  cur=n;
+  const nxt=document.getElementById('sc'+cur);
+  nxt.classList.add('on');
+  document.getElementById('d'+cur).classList.add('on');
+  const pb=document.getElementById('p'+cur);
+  if(pb){pb.style.animation='none';pb.offsetHeight;pb.style.animation=`prog-go ${DURATION}ms linear forwards`;}
+  if(cur===0){setTimeout(()=>{['st0','st1','st2'].forEach((id,i)=>setTimeout(()=>document.getElementById(id).classList.add('pop'),i*200));},400);}
+  clearTimeout(tmr);
+  if(cur<3) tmr=setTimeout(()=>goTo(cur+1),DURATION);
+}
+
+function restart(){ goTo(0); }
+
+window.addEventListener('load',()=>{
+  resize();
+  initParticles();
+  tick();
+  document.getElementById('p0').style.animation=`prog-go ${DURATION}ms linear forwards`;
+  setTimeout(()=>{['st0','st1','st2'].forEach((id,i)=>setTimeout(()=>document.getElementById(id).classList.add('pop'),i*200));},600);
+  tmr=setTimeout(()=>goTo(1),DURATION);
+});
+window.addEventListener('resize',()=>{resize();});
+</script>

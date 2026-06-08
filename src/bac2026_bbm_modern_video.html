@@ -1,0 +1,381 @@
+
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Amiri:wght@400;700&display=swap');
+
+.vw{
+  font-family:'Cairo',sans-serif;
+  background:#07101e;
+  border-radius:14px;
+  overflow:hidden;
+  position:relative;
+  min-height:580px;
+  direction:rtl;
+  border:0.5px solid rgba(255,255,255,0.08);
+}
+
+.vw-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 15% 60%, #0e2a50 0%, transparent 70%),
+    radial-gradient(ellipse 50% 60% at 85% 20%, rgba(176,130,10,0.12) 0%, transparent 65%);
+}
+
+.grid-lines{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(218,170,32,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(218,170,32,0.035) 1px, transparent 1px);
+  background-size:44px 44px;
+}
+
+.top-stripe{
+  position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#a2a7a4 33%,#fff 33%,#fff 66%,#d1cfd0 66%);
+  z-index:10;
+}
+
+.sc{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:40px 28px 50px;
+  text-align:center;
+  opacity:0;pointer-events:none;
+  transition:opacity .9s ease;
+  z-index:3;
+}
+.sc.on{opacity:1;pointer-events:all}
+
+/* ── Header badge ── */
+.hdr{
+  display:flex;align-items:center;gap:14px;
+  background:rgba(255,255,255,0.04);
+  border:0.5px solid rgba(218,165,32,0.3);
+  border-radius:60px;
+  padding:10px 22px;
+  margin-bottom:20px;
+}
+.badge{
+  width:48px;height:48px;border-radius:50%;
+  background:#c9950c;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:900;color:#07101e;
+  flex-shrink:0;
+}
+.hdr-txt{text-align:right;line-height:1.35}
+.hdr-wil{font-size:10px;color:#c9950c;font-weight:700;letter-spacing:.6px;JUSTIFY-CONTENT: C
+ENTER;display:flex;align-items:center;gap:4px}
+.hdr-dir{font-size:12px;color:#96b8d6;font-weight:400}
+
+/* ── Typography ── */
+.t-hero{
+  font-family:'Amiri',serif;
+  font-size:44px;font-weight:700;
+  color:#fff;line-height:1.2;
+  margin:0 0 6px;
+}
+.t-hero span{color:#e6af1a}
+.t-sub{font-size:15px;color:#6aa0c8;font-weight:400;margin:0 0 18px}
+
+/* ── Divider ── */
+.dv{width:180px;height:0.5px;background:linear-gradient(90deg,transparent,#c9950c,transparent);margin:0 auto 18px}
+
+/* ── Card ── */
+.crd{
+  background:rgba(255,255,255,0.04);
+  border:0.5px solid rgba(218,165,32,0.15);
+  border-radius:16px;
+  padding:20px 28px;
+  max-width:500px;width:100%;
+  text-align:right;
+}
+.crd p{font-size:16px;font-weight:400;color:#d8ecff;line-height:1.9;margin:0}
+.gld{color:#e6c040}
+.grn{color:#3ed98a}
+.sky{color:#4dbfff}
+
+/* ── Pillar grid ── */
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;max-width:480px;margin:16px 0}
+.pg{
+  background:rgba(255,255,255,0.05);
+  border:0.5px solid rgba(218,165,32,0.18);
+  border-radius:12px;
+  padding:14px 8px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.pg-ic{font-size:24px}
+.pg-lb{font-size:11px;font-weight:600;color:#7faacc}
+
+/* ── Tips list ── */
+.tips{width:100%;max-width:480px;text-align:right;margin-top:14px}
+.tip{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;font-weight:400;color:#c8e2f8;
+  padding:8px 0;
+  border-bottom:0.5px solid rgba(255,255,255,0.06);
+  line-height:1.55;
+}
+.tip:last-child{border-bottom:none}
+.ck{
+  width:20px;height:20px;border-radius:50%;
+  background:#c9950c;color:#07101e;
+  font-size:10px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+
+/* ── PTT role slide ── */
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:460px;width:100%;margin-top:14px}
+.rg{
+  background:rgba(255,255,255,0.05);
+  border:0.5px solid rgba(218,165,32,0.15);
+  border-radius:12px;
+  padding:14px 12px;
+  text-align:right;
+}
+.rg-ic{font-size:22px;margin-bottom:6px}
+.rg-h{font-size:13px;font-weight:600;color:#e6c040;margin-bottom:4px}
+.rg-p{font-size:12px;font-weight:400;color:#8fb8d8;line-height:1.5}
+
+/* ── Trophy ── */
+.trf{font-size:68px;display:block;margin-bottom:6px}
+
+/* ── Flag ── */
+.flag{display:flex;height:4px;width:70%;margin:14px auto;border-radius:2px;overflow:hidden}
+.fg{flex:1;background:#658877}
+.fw{flex:1;background:#fff}
+.fr{flex:1;background:#e2ddde}
+
+/* ── Button ── */
+.btn-r{
+  margin-top:18px;
+  background:#c9950c;color:#07101e;
+  border:none;border-radius:40px;padding:10px 30px;
+  font-family:'Cairo',sans-serif;
+  font-size:14px;font-weight:700;cursor:pointer;
+  transition:transform .2s;
+}
+.btn-r:hover{transform:scale(1.04)}
+
+/* ── Progress bar ── */
+.pb{position:absolute;bottom:0;left:0;height:2.5px;background:#c9950c;width:0}
+@keyframes pb-go{from{width:0}to{width:100%}}
+
+/* ── Dots ── */
+.dt-row{
+  display:flex;gap:7px;justify-content:center;
+  position:absolute;bottom:12px;left:50%;transform:translateX(-50%);
+  z-index:10;
+}
+.dt{width:7px;height:7px;border-radius:50%;background:rgba(200,149,12,0.2);transition:background .3s,transform .3s}
+.dt.on{background:#c9950c;transform:scale(1.35)}
+
+/* ── Counter display ── */
+.sc-num{
+  position:absolute;top:14px;left:20px;z-index:10;
+  font-size:11px;font-weight:600;color:rgba(200,149,12,0.5);
+  font-family:'Cairo',sans-serif;
+  direction:ltr;
+}
+</style>
+
+<div class="vw" id="vw">
+  <div class="vw-bg"></div>
+  <div class="grid-lines"></div>
+  <div class="top-stripe"></div>
+ 
+
+  <!-- SC 0: افتتاح -->
+  <div class="sc on" id="sc0">
+    <div class="hdr">
+      <div class="badge">DWPT</div>
+      <div class="hdr-txt">
+        <div class="hdr-wil">ولاية برج باجي مختار</div>
+        <div class="hdr-dir">مديرية البريد والمواصلات السلكية واللاسلكية</div>
+      </div>
+    </div>
+    <div class="t-hero">رسالة <span>دعم وتوجيه</span></div>
+    <div class="t-sub">لطلبة البكالوريا 2026</div>
+    <div class="dv"></div>
+    <div class="crd">
+      <p>يسعد مديرية البريد والمواصلات السلكية واللاسلكية<br>
+      لولاية <span class="gld">برج باجي مختار</span> أن تُرافقكم في هذه المرحلة المفصلية،<br>
+      وتُؤكّد دعمها الكامل لنجاح <span class="grn">مسيرتكم التعليمية</span> 🎓</p>
+    </div>
+    <div class="pb" id="p0"></div>
+  </div>
+
+  <!-- SC 1: الاستعداد الجيد -->
+  <div class="sc" id="sc1">
+    <div class="t-hero" style="font-size:30px">📅 <span>الاستعداد الجيد</span></div>
+    <div class="t-sub">أساس كل نجاح</div>
+    <div class="pgrid">
+      <div class="pg"><span class="pg-ic">🗓️</span><span class="pg-lb">جدول يومي</span></div>
+      <div class="pg"><span class="pg-ic">📖</span><span class="pg-lb">مراجعة منتظمة</span></div>
+      <div class="pg"><span class="pg-ic">📝</span><span class="pg-lb">ملخّصات ذكية</span></div>
+      <div class="pg"><span class="pg-ic">🎯</span><span class="pg-lb">أولويات واضحة</span></div>
+    </div>
+    <div class="crd">
+      <p><span class="gld">نظّم وقتك</span> وراجع دروسك بانتظام.<br>
+      كل ساعة مراجعة اليوم تساوي <span class="grn">ساعات من الراحة</span> غداً في قاعة الامتحان.</p>
+    </div>
+    <div class="pb" id="p1"></div>
+  </div>
+
+  <!-- SC 2: الراحة والتغذية -->
+  <div class="sc" id="sc2">
+    <div class="t-hero" style="font-size:30px">💤 <span>الراحة والتغذية</span></div>
+    <div class="t-sub">وقود عقلك وجسمك</div>
+    <div class="pgrid" style="grid-template-columns:repeat(3,1fr);max-width:360px">
+      <div class="pg"><span class="pg-ic">🛌</span><span class="pg-lb">نوم كافٍ</span></div>
+      <div class="pg"><span class="pg-ic">🥗</span><span class="pg-lb">تغذية متوازنة</span></div>
+      <div class="pg"><span class="pg-ic">💧</span><span class="pg-lb">ترطيب دائم</span></div>
+    </div>
+    <div class="crd">
+      <p><span class="gld">النوم الكافي والتغذية المتوازنة</span> يساعدان على التركيز.<br>
+      دماغك يحتاج الراحة ليعمل بكامل طاقته — <span class="sky">لا تحرمه منها</span> 🌙</p>
+    </div>
+    <div class="pb" id="p2"></div>
+  </div>
+
+  <!-- SC 3: الانترنت الإيجابي -->
+  <div class="sc" id="sc3">
+    <div class="t-hero" style="font-size:28px">🌐 <span>الاستعمال الإيجابي</span> للإنترنت</div>
+    <div class="t-sub">الإنترنت أداة — أحسن توظيفها</div>
+    <div class="tips">
+      <div class="tip"><div class="ck">✓</div><span>اعتمد على <span class="gld">المصادر الرسمية</span> والموثوقة فقط</span></div>
+      <div class="tip"><div class="ck">✓</div><span>استخدم منصات التعلّم الرقمي <span class="sky">للمراجعة</span></span></div>
+      <div class="tip"><div class="ck">✓</div><span>حدّد وقتاً مقنّناً لوسائل التواصل الاجتماعي</span></div>
+      <div class="tip"><div class="ck">✓</div><span>أبعد الهاتف وقت <span class="grn">المراجعة العميقة</span></span></div>
+    </div>
+    <div class="pb" id="p3"></div>
+  </div>
+
+  <!-- SC 4: تجنب الإشاعات -->
+  <div class="sc" id="sc4">
+    <div class="t-hero" style="font-size:30px">🚫 <span>تجنّب الإشاعات</span></div>
+    <div class="t-sub">لا تدع الفوضى تسرق تركيزك</div>
+    <div class="crd" style="margin-top:10px">
+      <p style="font-size:15px;line-height:2">
+        لا تتداول <span class="gld">الأخبار غير المؤكدة</span> بشأن الامتحانات.<br>
+        الإشاعات تُضيع الوقت وتزرع <span style="color:#ff7070">القلق</span> دون فائدة.<br><br>
+        مصدرك الوحيد: <span class="grn">المديرية والمسؤولون الرسميون</span> فقط. 🔒
+      </p>
+    </div>
+    <div class="pb" id="p4"></div>
+  </div>
+
+  <!-- SC 5: التوكل على الله -->
+<div class="sc" id="sc5">
+  <div class="t-hero" style="font-size:30px">🤲 <span>التوكّل على الله</span></div>
+  <div class="t-sub">الطمأنينة تصنع الفرق</div>
+
+  <div class="crd" style="margin-top:12px">
+    <p style="font-size:16px;line-height:2">
+      بعد الاجتهاد والمراجعة،<br>
+      اجعل قلبك مطمئنًا بـ <span class="gld">الدعاء والثقة بالله</span> ✨<br><br>
+
+      لا تجعل الخوف يسيطر عليك،<br>
+      فكل تعب بذلته سيؤتي ثماره بإذن الله 🌿
+    </p>
+  </div>
+
+  <div class="tips" style="margin-top:18px">
+    <div class="tip">
+      <div class="ck">✓</div>
+      <span>ابدأ يومك بـ <span class="grn">دعاء التوفيق</span></span>
+    </div>
+
+    <div class="tip">
+      <div class="ck">✓</div>
+      <span>حافظ على هدوئك وثقتك بنفسك</span>
+    </div>
+
+    <div class="tip">
+      <div class="ck">✓</div>
+      <span>تذكّر أن النجاح ثمرة الصبر والاجتهاد</span>
+    </div>
+  </div>
+
+  <div class="pb" id="p5"></div>
+</div>
+
+  <!-- SC 6: الثقة بالنفس -->
+  <div class="sc" id="sc6">
+    <div class="t-hero" style="font-size:32px">💪 <span>الثقة بالنفس</span></div>
+    <div class="t-sub">سلاحك الأقوى في قاعة الامتحان</div>
+    <div class="tips" style="max-width:460px">
+      <div class="tip"><div class="ck">✓</div><span>ثق في قدراتك — <span class="gld">أنت أعددت نفسك لهذا</span></span></div>
+      <div class="tip"><div class="ck">✓</div><span>واجه الامتحان <span class="sky">بهدوء وتأنٍّ</span></span></div>
+      <div class="tip"><div class="ck">✓</div><span>ابدأ بالأسئلة الأسهل لتكتسب الزخم</span></div>
+      <div class="tip"><div class="ck">✓</div><span>تنفّس بعمق وتوكّل على الله <span class="grn">🤲</span></span></div>
+    </div>
+    <div class="pb" id="p6"></div>
+  </div>
+
+  <!-- SC 7: الختام -->
+  <div class="sc" id="sc7">
+    <span class="trf">🏆</span>
+    <div class="t-hero" style="font-size:38px">بالتوفيق و<span>النجاح</span></div>
+    <div class="t-sub" style="font-size:16px;margin-bottom:12px">نتمنى النجاح لجميع مترشحي البكالوريا 2026</div>
+    <div class="flag"><div class="fg"></div><div class="fw"></div><div class="fr"></div></div>
+    <div class="crd" style="margin-top:10px">
+      <p>
+        <span class="gld">مديرية البريد والمواصلات السلكية واللاسلكية</span><br>
+        لولاية <span class="sky">برج باجي مختار</span><br><br>
+        تُشجّعكم وتدعو الله أن يُسدّد خطاكم 
+          نحو النجاح والتفوّق في امتحانات البكالوريا 2026!
+      </p>
+    </div>
+    <button class="btn-r" onclick="restart()">  الى  الامام  </button>
+    <div class="pb" id="p7"></div>
+  </div>
+
+  <!-- Navigation dots -->
+  <div class="dt-row">
+    <div class="dt on" id="d0"></div>
+    <div class="dt" id="d1"></div>
+    <div class="dt" id="d2"></div>
+    <div class="dt" id="d3"></div>
+    <div class="dt" id="d4"></div>
+    <div class="dt" id="d5"></div>
+    <div class="dt" id="d6"></div>
+    <div class="dt" id="d7"></div>
+  </div>
+</div>
+
+<script>
+const TOTAL = 8;
+const DUR = 6000;
+let cur = 0, tmr;
+
+function goTo(n) {
+  document.getElementById('sc' + cur).classList.remove('on');
+  document.getElementById('d' + cur).classList.remove('on');
+  cur = n;
+  document.getElementById('sc' + cur).classList.add('on');
+  document.getElementById('d' + cur).classList.add('on');
+  const pb = document.getElementById('p' + cur);
+  if (pb) { pb.style.animation = 'none'; pb.offsetHeight; pb.style.animation = 'pb-go ' + DUR + 'ms linear forwards'; }
+  clearTimeout(tmr);
+  if (cur < TOTAL - 1) tmr = setTimeout(() => goTo(cur + 1), DUR);
+}
+
+function restart() { goTo(0); }
+
+window.addEventListener('load', () => {
+  const pb = document.getElementById('p0');
+  pb.style.animation = 'pb-go ' + DUR + 'ms linear forwards';
+  tmr = setTimeout(() => goTo(1), DUR);
+
+  document.getElementById('vw').addEventListener('click', (e) => {
+    if (e.target.closest('.btn-r') || e.target.closest('.dt-row')) return;
+    if (cur < TOTAL - 1) { clearTimeout(tmr); goTo(cur + 1); }
+  });
+
+  document.querySelectorAll('.dt').forEach((d, i) => {
+    d.addEventListener('click', () => { clearTimeout(tmr); goTo(i); });
+  });
+});
+</script>
