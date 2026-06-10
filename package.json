@@ -37,7 +37,7 @@
   "devDependencies": {
     "gh-pages": "^6.3.0"
   },
-   "engines": {
-  "node": "20.x"
-}
+  "engines": {
+    "node": "20.x"
+  }
 }
